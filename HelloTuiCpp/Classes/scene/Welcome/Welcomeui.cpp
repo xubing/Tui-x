@@ -18,6 +18,7 @@ void Welcomeui::onLoadScene()
 		CSceneManager::getInstance()->replaceScene(
 			CCSceneExTransitionFade::create(0.5f, LoadScene("Main::Mainui")));
 		}), NULL));
+		
 }
 
 /************************************************************************/

@@ -1,6 +1,8 @@
+cocos2d
 */bin/
 */Debug.win32/
 .DS_Store
 *.obj
 *.sdf
 *.opensdf
+*._*

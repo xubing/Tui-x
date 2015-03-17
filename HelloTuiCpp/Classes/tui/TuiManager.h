@@ -68,6 +68,7 @@ public:
 	*
 	* @param b
 	*/
+
 	void setAdaptResolution(bool b, float designWidth = 800, float designHeight = 480);
 
 	CC_SYNTHESIZE_READONLY(float, m_fScaleResolutionX, ScaleResolutionX);
@@ -118,6 +119,8 @@ protected:
 	* @param xmlNode
 	*/
 	void parseControl(Node* container,xml_node<char>*);
+
+	void foreachXmlParse(Node* container, xml_node<char>* item,const char* targetName);
 
 	void doAdapterResolution(Node* container);
 private:

@@ -21,15 +21,7 @@ void TuiManager::parseScene(Node* pScene ,const char* sceneName,const char* xmlP
 	xml_document<> doc;
 	doc.parse<0>(buf);
 
-	for(xml_node<char> *item = doc.first_node("control");item != NULL;item = item->next_sibling()){
-		
-		if( strcmp(item->first_attribute("type")->value(),kTuiContainerPanel) == 0){//panel
-
-			if(strcmp(item->first_attribute("name")->value(),sceneName) != 0) continue;//only parse the key panel
-
-			this->parseControl(pScene,item);
-		}
-	}
+	this->foreachXmlParse(pScene,doc.first_node(kTuiNodeControl),sceneName);
 
 	if (m_isAdaptResolution)
 		doAdapterResolution(pScene);
@@ -46,17 +38,24 @@ void TuiManager::parseCell(CLayout* pCell, const char* cellName, const char* xml
 	xml_document<> doc;
 	doc.parse<0>(buf);
 
-	for (xml_node<char> *item = doc.first_node("control"); item != NULL; item = item->next_sibling()){
-
-		if (strcmp(item->first_attribute("type")->value(), kTuiControlCell) == 0){//cell
-
-			if (strcmp(item->first_attribute("name")->value(), cellName) != 0) continue;//only parse the key cell
-
-			this->parseControl(pCell, item);
-		}
-	}
+	this->foreachXmlParse(pCell,doc.first_node(kTuiNodeControl),cellName);
 
 	delete[] buf;
+}
+
+void TuiManager::foreachXmlParse(Node *container, xml_node<char>* xmlItem,const char* targetName )
+{ 
+	for (xml_node<char> *item = xmlItem; item != NULL; item = item->next_sibling()){
+		if(item->first_attribute("name")){
+			if ( strcmp(item->first_attribute("name")->value(), targetName) != 0 ){
+				if(item->first_node(kTuiNodeControl)){
+					this->foreachXmlParse(container,item->first_node(kTuiNodeControl),targetName);
+				}
+			}else{
+				return this->parseControl(container, item);
+			}
+		}
+	}
 }
 
 /////////////////////////////////////////////////////////////////
@@ -913,3 +912,6 @@ void TuiManager::setAdaptResolution(bool b, float designWidth/* =800 */, float d
 		m_fScaleResolutionY = 1.0f;
 	}
 }
+
+
+
