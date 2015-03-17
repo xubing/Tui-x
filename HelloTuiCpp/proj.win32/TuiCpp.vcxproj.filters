@@ -76,6 +76,9 @@
     <Filter Include="lib\CocosWidget\EditBox">
       <UniqueIdentifier>{6ca590d6-1a28-4823-a89b-9287dbfc2249}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\scene\Map">
+      <UniqueIdentifier>{a2574934-2c4d-4563-9f3b-db5855f86faf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -303,11 +306,14 @@
     <ClCompile Include="..\Classes\scene\Welcome\Welcomeui.cpp">
       <Filter>Classes\scene\Welcome</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CocosWidget\CEditBox\Win32InputBox.cpp">
-      <Filter>lib\CocosWidget\EditBox</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\CocosWidget\MapView.cpp">
       <Filter>lib\CocosWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\Map\Mapui.cpp">
+      <Filter>Classes\scene\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CocosWidget\CEditBox\Win32InputBox.cpp">
+      <Filter>lib\CocosWidget\EditBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -698,11 +704,17 @@
     <ClInclude Include="..\Classes\scene\Welcome\WelcomeCfg.h">
       <Filter>Classes\scene\Welcome</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CocosWidget\CEditBox\Win32InputBox.h">
-      <Filter>lib\CocosWidget\EditBox</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\CocosWidget\MapView.h">
       <Filter>lib\CocosWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map\Mapui.h">
+      <Filter>Classes\scene\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map\MapCfg.h">
+      <Filter>Classes\scene\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CocosWidget\CEditBox\Win32InputBox.h">
+      <Filter>lib\CocosWidget\EditBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

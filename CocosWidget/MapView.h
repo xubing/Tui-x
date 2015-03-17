@@ -1,5 +1,4 @@
-﻿
-#ifndef __CCWIDGET_MAPVIEW_H__
+﻿#ifndef __CCWIDGET_MAPVIEW_H__
 #define __CCWIDGET_MAPVIEW_H__
 
 #include "GridView.h"
@@ -34,13 +33,14 @@ public:
 	static CGrid* create(int numCols,int numRows);
 	bool init(int numCols,int numRows);
 	CNode *getNode(int x,int y) { return _nodes[x].at(y); };
-	void setStartNode(int x,int y)	{ _startNode	= _nodes[x].at(y); };
-	void setEndNode(int x,int y)	{ _endNode		= _nodes[x].at(y); };
+	void setStartNode(int x,int y);
+	void setEndNode(int x,int y);
 	void setWalkable(int x,int y,bool b) { _nodes[x].at(y)->walkable = b; };
 	CNode* getStartNode(){ return _startNode;};
 	CNode* getEndNode(){ return _endNode;};
 	int getNumCols(){ return _numCols;};
 	int getNumRows(){ return _numRows;};
+	
 private:
 	CNode* _startNode;
 	CNode* _endNode;
@@ -62,7 +62,7 @@ public:
 		_straightCost(1),
 		_diagCost(sqrt(2)){};
 	virtual bool init();
-	AStar *getInstance();
+	static AStar *getInstance();
 
 	bool findPath(CGrid *grid);
 	bool search();

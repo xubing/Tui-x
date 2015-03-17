@@ -1,5 +1,4 @@
-﻿
-#include "MapView.h"
+﻿#include "MapView.h"
 
 NS_CC_WIDGET_BEGIN
 
@@ -19,16 +18,41 @@ bool CGrid::init( int numCols,int numRows )
 {
 	_numCols = numCols;
 	_numRows = numRows;
+	_startNode = nullptr;
+	_endNode = nullptr;
 	
+	_nodes = vector<VectNode>();
 	for (int i = 0;i< _numCols; i++)
 	{
-		_nodes[i] = VectNode();
+		_nodes.push_back(VectNode());
 		for (int j = 0;j< _numRows; j++)
 		{
 			_nodes[i].pushBack( CNode::create(i,j) );
 		}
 	}
 	return true;
+}
+
+void CGrid::setStartNode( int x,int y )
+{
+	auto node = _nodes[x].at(y);
+	if (_startNode != node) 
+	{ 
+		CC_SAFE_RETAIN(node); 
+		CC_SAFE_RELEASE(_startNode); 
+		_startNode = node; 
+	} 
+}
+
+void CGrid::setEndNode( int x,int y )
+{
+	auto node = _nodes[x].at(y);
+	if (_endNode != node) 
+	{ 
+		CC_SAFE_RETAIN(node); 
+		CC_SAFE_RELEASE(_endNode); 
+		_endNode = node; 
+	} 
 }
 
 CNode* CNode::create( int x,int y )
@@ -52,20 +76,25 @@ bool CNode::init( int x,int y )
 }
 
 static AStar* s_Astar = nullptr;
-AStar * AStar::getInstance()
+AStar* AStar::getInstance()
 {
-	if (!s_Astar)
+	if (s_Astar == nullptr)
 	{
 		s_Astar = new (std::nothrow) AStar();
-		CCASSERT(s_Astar, "FATAL: Not enough memory");
-		s_Astar->init();
+		if(s_Astar && s_Astar->init()){
+			s_Astar->retain();
+		}else{
+			CC_SAFE_DELETE(s_Astar);
+			s_Astar = nullptr;
+		}
 	}
-
 	return s_Astar;
 }
 
 bool AStar::init()
 {
+	_startNode = nullptr;
+	_endNode = nullptr;
 	setHeuristicFunc(eDiagonal);
 	return true;
 }
@@ -186,7 +215,7 @@ void AStar::buildPath()
 	_path = VectNode();
 	auto node = _endNode;
 	_path.pushBack(node);
-	while (node)
+	while (node != _startNode)
 	{
 		node = node->parent;
 		_path.insert(0,node);
