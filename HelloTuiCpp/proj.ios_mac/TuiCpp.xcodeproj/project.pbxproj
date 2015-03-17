@@ -12,6 +12,10 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		45AD98DD1AB885A500690125 /* MapView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45AD98DB1AB885A500690125 /* MapView.cpp */; };
+		45AD98DE1AB885A500690125 /* MapView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45AD98DB1AB885A500690125 /* MapView.cpp */; };
+		45AD98E31AB885C700690125 /* Mapui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45AD98E11AB885C700690125 /* Mapui.cpp */; };
+		45AD98E41AB885C700690125 /* Mapui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45AD98E11AB885C700690125 /* Mapui.cpp */; };
 		45DEB39C1AB7B69000430759 /* ResoureMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45DEB36C1AB7B69000430759 /* ResoureMgr.cpp */; };
 		45DEB39D1AB7B69000430759 /* ResoureMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45DEB36C1AB7B69000430759 /* ResoureMgr.cpp */; };
 		45DEB39E1AB7B69000430759 /* Bagui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45DEB3711AB7B69000430759 /* Bagui.cpp */; };
@@ -270,6 +274,11 @@
 		1D6058910D05DD3D006BFB54 /* TuiCpp iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TuiCpp iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		45AD98DB1AB885A500690125 /* MapView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapView.cpp; sourceTree = "<group>"; };
+		45AD98DC1AB885A500690125 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		45AD98E01AB885C700690125 /* MapCfg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCfg.h; sourceTree = "<group>"; };
+		45AD98E11AB885C700690125 /* Mapui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mapui.cpp; sourceTree = "<group>"; };
+		45AD98E21AB885C700690125 /* Mapui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapui.h; sourceTree = "<group>"; };
 		45DEB36C1AB7B69000430759 /* ResoureMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResoureMgr.cpp; sourceTree = "<group>"; };
 		45DEB36D1AB7B69000430759 /* ResoureMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResoureMgr.h; sourceTree = "<group>"; };
 		45DEB3701AB7B69000430759 /* BagCfg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BagCfg.h; sourceTree = "<group>"; };
@@ -648,6 +657,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		45AD98DF1AB885C700690125 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				45AD98E01AB885C700690125 /* MapCfg.h */,
+				45AD98E11AB885C700690125 /* Mapui.cpp */,
+				45AD98E21AB885C700690125 /* Mapui.h */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		45DEB36B1AB7B69000430759 /* module */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +679,7 @@
 		45DEB36E1AB7B69000430759 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				45AD98DF1AB885C700690125 /* Map */,
 				45DEB36F1AB7B69000430759 /* Bag */,
 				45DEB3731AB7B69000430759 /* Guide */,
 				45DEB3761AB7B69000430759 /* Main */,
@@ -821,6 +841,8 @@
 		45DEB3E71AB7B6BE00430759 /* CocosWidget */ = {
 			isa = PBXGroup;
 			children = (
+				45AD98DB1AB885A500690125 /* MapView.cpp */,
+				45AD98DC1AB885A500690125 /* MapView.h */,
 				45DEB3E81AB7B6BE00430759 /* ArmatureBtn.cpp */,
 				45DEB3E91AB7B6BE00430759 /* ArmatureBtn.h */,
 				45DEB3EA1AB7B6BE00430759 /* Button.cpp */,
@@ -1337,6 +1359,7 @@
 				45DEB4E21AB7B6BE00430759 /* LabelBMFont.cpp in Sources */,
 				45DEB4F21AB7B6BE00430759 /* ScrollView.cpp in Sources */,
 				45DEB3AC1AB7B69000430759 /* Welcomeui.cpp in Sources */,
+				45AD98DD1AB885A500690125 /* MapView.cpp in Sources */,
 				45DEB4CC1AB7B6BE00430759 /* CircleMenu.cpp in Sources */,
 				45DEB49E1AB7B6BE00430759 /* CCMsgManager.cpp in Sources */,
 				45DEB50C1AB7B6BE00430759 /* Armature.cpp in Sources */,
@@ -1347,6 +1370,7 @@
 				45DEB4AE1AB7B6BE00430759 /* CCSocket.cpp in Sources */,
 				45DEB4B41AB7B6BE00430759 /* Button.cpp in Sources */,
 				45DEB4BE1AB7B6BE00430759 /* CEditBoxImplAndroid.cpp in Sources */,
+				45AD98E31AB885C700690125 /* Mapui.cpp in Sources */,
 				45DEB4AA1AB7B6BE00430759 /* CCInetAddress.cpp in Sources */,
 				45DEB5201AB7B6BE00430759 /* XMLDataParser.cpp in Sources */,
 				45DEB4EA1AB7B6BE00430759 /* NumericStepper.cpp in Sources */,
@@ -1433,6 +1457,7 @@
 				45DEB3A71AB7B69000430759 /* Recombineui.cpp in Sources */,
 				45DEB4DF1AB7B6BE00430759 /* Label.cpp in Sources */,
 				45DEB4C11AB7B6BE00430759 /* CEditBoxImplIOS.mm in Sources */,
+				45AD98E41AB885C700690125 /* Mapui.cpp in Sources */,
 				45DEB4F91AB7B6BE00430759 /* TextRich.cpp in Sources */,
 				45DEB4C31AB7B6BE00430759 /* CEditBoxImplMac.mm in Sources */,
 				45DEB4C51AB7B6BE00430759 /* CEditBoxImplNone.cpp in Sources */,
@@ -1481,6 +1506,7 @@
 				45DEB5031AB7B6BE00430759 /* WitlsMacros.cpp in Sources */,
 				45DEB49D1AB7B6BE00430759 /* CCMsgDelegate.cpp in Sources */,
 				45DEB49B1AB7B6BE00430759 /* CCBundle.cpp in Sources */,
+				45AD98DE1AB885A500690125 /* MapView.cpp in Sources */,
 				45DEB4DB1AB7B6BE00430759 /* ImageView.cpp in Sources */,
 				45DEB3A31AB7B69000430759 /* MsgBox.cpp in Sources */,
 				45DEB4E51AB7B6BE00430759 /* Layout.cpp in Sources */,

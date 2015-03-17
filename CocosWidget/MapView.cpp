@@ -72,6 +72,7 @@ bool CNode::init( int x,int y )
 	this->x = x;
 	this->y = y;
 	this->costMultiplier = 1;
+    this->walkable = true;
 	return true;
 }
 

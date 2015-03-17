@@ -414,6 +414,7 @@ UIControlType.kPageView = "pageView";
 UIControlType.kTableView = "tableView";
 UIControlType.kGridView = "gridView";
 UIControlType.kScrollView = "scrollView";
+UIControlType.kMapView = "mapView";
 UIControlType.kLayout = "layout";
 UIControlType.kGridPageView = "gridPageView";
 UIControlType.kMoiveView = "movieView";
@@ -709,6 +710,15 @@ UIGridView.extend( UIControl );
 UIGridView.prototype.init = function(){
 	UIGridView.superClass.prototype.init.call(this);
 	this.setAttribute( UIControlAttribute.kType, UIControlType.kGridView );
+}
+/////////////////MapView//////////////////////////////////////////////
+UIMapView = function(){
+	UIMapView.superClass.call(this);
+}
+UIMapView.extend( UIControl );
+UIMapView.prototype.init = function(){
+	UIMapView.superClass.prototype.init.call(this);
+	this.setAttribute( UIControlAttribute.kType, UIControlType.kMapView );
 }
 /////////////////ArmatureBtn//////////////////////////////////////////////
 UIArmatureBtn = function(){
@@ -1401,6 +1411,19 @@ FlaToXML.prototype.convertGridPageView = function(gridPageView,tag,frameName){
 	this.fullNormalAttirbute(xml_gridPageView,this.th, gridPageView,tag ,frameName);
 	return xml_gridPageView;
 }
+/** 转换MapView */
+FlaToXML.prototype.convertMapView = function(mapView,tag,frameName){
+	var xml_map = new UIMapView();
+	var params = mapView.parameters;
+	xml_map.setAttribute(UIControlAttribute.kColumn,params.col.value);
+	xml_map.setAttribute(UIControlAttribute.kNum,params.num.value);
+	xml_map.setAttribute(UIControlAttribute.kCellWidth,params.cellWidth.value);
+	xml_map.setAttribute(UIControlAttribute.kCellHeight,params.cellHeight.value);
+
+	this.fullNormalAttirbute(xml_map,this.th, gridView,tag ,frameName);
+	return xml_map;
+}
+
 /** 转换armatureBtn */
 FlaToXML.prototype.convertArmatureBtn = function(armatureBtn,tag ,frameName){
 	var xml_armatureBtn = new UIArmatureBtn();
