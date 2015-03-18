@@ -16,11 +16,35 @@ TuiBase::~TuiBase(){
 /************************************************************************/
 // GET/SET/IS
 /************************************************************************/
-Node* TuiBase::getControl(int tagPanel,int tagControl){
-	Node* control = getPanel(tagPanel)->getChildByTag(tagControl);
-	return control;
+Node* TuiBase::getControlByTag(int tag)
+{
+	return findNode(_children, tag);
 }
-Node* TuiBase::getPanel(int tagPanel){
-	//Override
+
+Node* TuiBase::findNode(Vector<Node*> &pChidren, int tag)
+{
+	if(pChidren.size() > 0 )
+	{
+		unsigned int nCount = pChidren.size();
+		for(unsigned int i = 0; i < nCount; ++i)
+		{
+			Node* pObject = pChidren.at(i);
+			if( pObject )
+			{
+				if( pObject->getTag() == tag )
+				{
+					return pObject;
+				}
+				else
+				{
+					Node* pRet = findNode(dynamic_cast<Node*>(pObject)->getChildren(), tag);
+					if( pRet )
+					{
+						return pRet;
+					}
+				}
+			}
+		}
+	}
 	return NULL;
 }

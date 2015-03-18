@@ -406,6 +406,16 @@ void TuiManager::parseControl(Node* container,xml_node<char> *item)
 		CGridView *pView = createGridView(tag, Color4B(r, g, b, a), column, num, cellWidth, cellHeight, x, y, w, h, rotation);
 		container->addChild(pView);
 
+	}else if(strcmp(item->first_attribute("type")->value(),kTuiControlMapView) == 0){//MapView
+		float w = atof(item->first_attribute("width")->value());
+		float h = atof(item->first_attribute("height")->value());
+		int cellWidth = atoi(item->first_attribute("cellWidth")->value());
+		int cellHeight = atoi(item->first_attribute("cellHeight")->value());
+		int column = atoi(item->first_attribute("column")->value());
+		int num = atoi(item->first_attribute("num")->value());
+		CMapView *pView = createMapView(tag, column, num, cellWidth, cellHeight, x, y, w, h, rotation);
+		container->addChild(pView);
+
 	}else if (strcmp(item->first_attribute("type")->value(), kTuiControlGridPageView) == 0){//GridPageView
 		float w = atof(item->first_attribute("width")->value());
 		float h = atof(item->first_attribute("height")->value());
@@ -776,6 +786,18 @@ CGridView* TuiManager::createGridView(float tag, Color4B color, int column, int 
 	return pView;
 }
 
+CMapView* TuiManager::createMapView( float tag, int column, int num, int cellWidth, int cellHeight, float x, float y, float w, float h, float rotation ){
+	CMapView* pView = CMapView::create(Size(w, h));
+	pView->setAutoRelocate(false);
+	pView->setRotation(rotation);
+	pView->setPosition(x, -y);
+	pView->setColumns(column);
+	pView->setCountOfCell(num);
+	pView->setSizeOfCell(Size(cellWidth, cellHeight));
+	pView->setTag(tag);
+	return pView;
+}
+
 CPageView *TuiManager::createPageView(float tag, Color4B color, int dir, int num, float x, float y, float w, float h, float rotation){
 	CPageView *pView = CPageView::create(Size(w, h));
 	if (color.a != 0) pView->setBackgroundColor(color);
@@ -912,6 +934,5 @@ void TuiManager::setAdaptResolution(bool b, float designWidth/* =800 */, float d
 		m_fScaleResolutionY = 1.0f;
 	}
 }
-
 
 

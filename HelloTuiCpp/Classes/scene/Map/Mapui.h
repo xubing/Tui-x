@@ -10,8 +10,6 @@ public:
 	CREATE_SCENE_FUNC(Mapui);
 
 	void onLoadScene();
-
-	Node *getPanel(int tagPanel);
 protected:
 	CGrid *_grid;
 private:

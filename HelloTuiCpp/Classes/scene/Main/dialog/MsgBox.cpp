@@ -9,10 +9,10 @@ void MsgBox::onLoadScene()
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("main/mainui.plist");
 	TuiManager::getInstance()->parseScene(this,"panel_msgbox",PATH_MAIN);
 	//注册事件
-	CButton *pBtnClose = (CButton*)getControl(PANEL_MSGBOX,BTN_CLOSE);
+	CButton *pBtnClose = (CButton*)getControlByTag(BTN_CLOSE);
 	pBtnClose->setOnClickListener(this,ccw_click_selector(MsgBox::event_btn_close));
 	
-	CSlider *pSlider = (CSlider*)getControl(PANEL_MSGBOX,SLIDER_TEST);
+	CSlider *pSlider = (CSlider*)getControlByTag(SLIDER_TEST);
 	pSlider->setOnValueChangedListener(this,ccw_valuechanged_selector(MsgBox::event_slider_test));
 }
 
@@ -25,10 +25,10 @@ void MsgBox::event_slider_test(Ref *pSender,int value)
 {
 	char buf[128] = {0};
 	sprintf(buf,"%d",value);
-	CLabelAtlas *pLab = (CLabelAtlas*)this->getControl(PANEL_MSGBOX,LABATLAS_NUM);
+	CLabelAtlas *pLab = (CLabelAtlas*)this->getControlByTag(LABATLAS_NUM);
 	pLab->setString(buf);
 
-	CProgressBar *pProg = (CProgressBar*)this->getControl(PANEL_MSGBOX,PROG_HP);
+	CProgressBar *pProg = (CProgressBar*)this->getControlByTag(PROG_HP);
 	pProg->setValue(value);
 
 }
@@ -37,22 +37,6 @@ void MsgBox::event_slider_test(Ref *pSender,int value)
 /************************************************************************/
 //	GET/SET/IS
 /************************************************************************/
-Node* MsgBox::getControl(int tagPanel, int tagControl){
-	Node* control = getPanel(tagPanel)->getChildByTag(tagControl);
-	return control;
-}
-
-Node *MsgBox::getPanel( int tagPanel )
-{
-	Node *pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_MSGBOX:
-		pPanel = this->getChildByTag(PANEL_MSGBOX);
-		break;
-	}
-	return pPanel;
-}
 
 void MsgBox::onEnterScene()
 {

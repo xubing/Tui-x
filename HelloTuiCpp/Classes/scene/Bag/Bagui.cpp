@@ -11,19 +11,19 @@ void Bagui::onLoadScene()
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("bag/bagui.plist");
 	TuiManager::getInstance()->parseScene(this, "panel_bag", PATH_BAG);
 
-	CGridView* pGridView = (CGridView*)this->getControl(PANEL_BAG, GV_BAG);
+	CGridView* pGridView = (CGridView*)this->getControlByTag( GV_BAG);
 	pGridView->setDataSourceAdapter(this, ccw_datasource_adapter_selector(Bagui::event_adapt_gvBag));
 	pGridView->reloadData();
 
-	CTableView* pTblView = (CTableView*)this->getControl(PANEL_BAG, TBL_BAG);
+	CTableView* pTblView = (CTableView*)this->getControlByTag( TBL_BAG);
 	pTblView->setDataSourceAdapter(this, ccw_datasource_adapter_selector(Bagui::event_adapt_tblBag));
 	pTblView->reloadData();
 
-	CPageView* pPageView = (CPageView*)this->getControl(PANEL_BAG, PV_BAG);
+	CPageView* pPageView = (CPageView*)this->getControlByTag( PV_BAG);
 	pPageView->setDataSourceAdapter(this, ccw_datasource_adapter_selector(Bagui::event_adapt_pageBag));
 	pPageView->reloadData();
 
-	CButton* pBtnView = (CButton*)this->getControl(PANEL_BAG, BTN_BACK);
+	CButton* pBtnView = (CButton*)this->getControlByTag( BTN_BACK);
 	pBtnView->setOnClickListener(this, ccw_click_selector(Bagui::event_btn_back));
 }
 
@@ -94,16 +94,6 @@ void Bagui::event_btn_gv(Ref* pSender)
 /************************************************************************/
 //	GET/SET/IS
 /************************************************************************/
-Node* Bagui::getPanel(int tagPanel)
-{
-	Node* pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_BAG:
-		pPanel = this->getChildByTag(PANEL_BAG);
-		break;
-	}
-	return pPanel;
-}
+
 
 NS_BAG_END

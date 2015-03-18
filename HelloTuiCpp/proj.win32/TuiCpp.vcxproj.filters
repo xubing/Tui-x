@@ -716,6 +716,9 @@
     <ClInclude Include="..\..\CocosWidget\CEditBox\Win32InputBox.h">
       <Filter>lib\CocosWidget\EditBox</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\tui\tagMap\Tag_map.h">
+      <Filter>lib\tui\tagMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -43,10 +43,9 @@ public:
 	
 	TuiBase();
 	virtual ~TuiBase();
-	virtual Node *getControl(int tagPanel,int tagControl);
-	virtual Node *getPanel(int tagPanel);		
-
+	Node* getControlByTag(int tag);	
 protected:
+	Node *findNode(Vector<Node*> &pChidren, int tag);
 	CC_SYNTHESIZE(bool, m_isAutoRemoveUnusedSpriteFrame, AutoRemoveUnusedSpriteFrame);
 private:
 };

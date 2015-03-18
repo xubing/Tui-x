@@ -11,36 +11,36 @@ void Mainui::onLoadScene()
 	TuiManager::getInstance()->parseScene(this,"panel_main",PATH_MAIN);
 
 	Vec2 area = Arp(Vec2(618, 10));
-	CWidgetWindow *panel = (CWidgetWindow*)getPanel(PANEL_MAIN);
+	CWidgetWindow *panel = (CWidgetWindow*)getControlByTag(PANEL_MAIN);
 	panel->setTouchAreaEnabled(true);
     panel->setTouchArea(cocos2d::Rect(area.x, area.y, 92, 36));
 
 	//注册事件
-	CControlView *ctlv = (CControlView*)this->getControl(PANEL_MAIN,CTLV_LEFT);
+	CControlView *ctlv = (CControlView*)this->getControlByTag(CTLV_LEFT);
 	ctlv->setOnControlListener(this,ccw_control_selector(Mainui::event_ctlv_left));
 
-	CButton *pBtnOk = (CButton*)this->getControl(PANEL_MAIN,BTN_OK);
+	CButton *pBtnOk = (CButton*)this->getControlByTag(BTN_OK);
 	pBtnOk->setOnClickListener(this,ccw_click_selector(Mainui::event_btn_ok));
 
-	CButton *pBtnGo = (CButton*)this->getControl(PANEL_MAIN,BTN_GO);
+	CButton *pBtnGo = (CButton*)this->getControlByTag(BTN_GO);
 	pBtnGo->setOnClickListener(this,ccw_click_selector(Mainui::event_btn_go));
 
-	CButton *pBtnPhone = (CButton*)this->getControl(PANEL_MAIN, BTN_SHOWPHONE);
+	CButton *pBtnPhone = (CButton*)this->getControlByTag( BTN_SHOWPHONE);
 	pBtnPhone->setOnClickListener(this, ccw_click_selector(Mainui::event_btn_showphone));
 
-	CButton *pBtnBag = (CButton*)this->getControl(PANEL_MAIN, BTN_BAG);
+	CButton *pBtnBag = (CButton*)this->getControlByTag( BTN_BAG);
 	pBtnBag->setOnClickListener(this, ccw_click_selector(Mainui::event_btn_bag));
 
-	CButton *pBtnRecombine = (CButton*)this->getControl(PANEL_MAIN, BTN_RECOMBINE);
+	CButton *pBtnRecombine = (CButton*)this->getControlByTag( BTN_RECOMBINE);
 	pBtnRecombine->setOnClickListener(this, ccw_click_selector(Mainui::event_btn_recombine));
 
-	CToggleView *pTgvA = (CToggleView*)this->getControl(PANEL_MAIN, TGV_A);
+	CToggleView *pTgvA = (CToggleView*)this->getControlByTag( TGV_A);
 	pTgvA->setOnCheckListener(this, ccw_check_selector(Mainui::event_tgvA_check));
 
-	CToggleView *pTgvB = (CToggleView*)this->getControl(PANEL_MAIN, TGV_B);
+	CToggleView *pTgvB = (CToggleView*)this->getControlByTag( TGV_B);
 	pTgvB->setOnCheckListener(this, ccw_check_selector(Mainui::event_tgvB_check));
     
-    CEditBox *pEditBox = (CEditBox*)this->getControl(PANEL_MAIN, EDIT_LOGIN);
+    CEditBox *pEditBox = (CEditBox*)this->getControlByTag( EDIT_LOGIN);
     pEditBox->setDelegate(this);
     
 	CSceneManager::getInstance()->runSuspendScene(LoadScene("Guideui"));
@@ -53,7 +53,7 @@ void Mainui::editBoxReturn(CEditBox *pEditBox)
 
 void Mainui::event_ctlv_left( Ref* pSender, float fx, float fy )
 {
-	Sprite *pIcon = (Sprite*)this->getControl(PANEL_MAIN,ANIM_COIN);
+	Sprite *pIcon = (Sprite*)this->getControlByTag(ANIM_COIN);
 	pIcon->setPosition(pIcon->getPosition() + Arp(Vec2(fx, fy)));
 }
 
@@ -100,17 +100,6 @@ void Mainui::event_btn_recombine(Ref* pSender)
 /************************************************************************/
 //	GET/SET/IS
 /************************************************************************/
-Node* Mainui::getPanel( int tagPanel )
-{
-	Node *pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_MAIN:
-		pPanel = this->getChildByTag(PANEL_MAIN);
-		break;
-	}
-	return pPanel;
-}
 
 void Mainui::onMessage(unsigned int uMsg, Ref* pMsgObj, void* wParam, void* lParam)
 {
@@ -118,7 +107,7 @@ void Mainui::onMessage(unsigned int uMsg, Ref* pMsgObj, void* wParam, void* lPar
 	{
 	case FINISH_GUIDE:
 	{
-		CWidgetWindow *panel = (CWidgetWindow*)getPanel(PANEL_MAIN);
+		CWidgetWindow *panel = (CWidgetWindow*)getControlByTag(PANEL_MAIN);
 		panel->setTouchAreaEnabled(false);
 	}
 		break;

@@ -32,17 +32,3 @@ void Mapui::onLoadScene()
 /************************************************************************/
 //	GET/SET/IS
 /************************************************************************/
-Node * Mapui::getPanel( int tagPanel )
-{
-	/*
-	Node *pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_STORE:
-		pPanel = this->getChildByTag(PANEL_STORE);
-		break;
-	}
-	return pPanel;
-	*/
-	return nullptr;
-}

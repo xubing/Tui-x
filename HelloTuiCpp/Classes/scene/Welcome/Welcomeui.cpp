@@ -24,16 +24,6 @@ void Welcomeui::onLoadScene()
 /************************************************************************/
 //	GET/SET/IS
 /************************************************************************/
-Node * Welcomeui::getPanel( int tagPanel )
-{
-	Node *pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_WELCOME:
-		pPanel = this->getChildByTag(PANEL_WELCOME);
-		break;
-	}
-	return pPanel;
-}
+
 
 NS_WELCOME_END

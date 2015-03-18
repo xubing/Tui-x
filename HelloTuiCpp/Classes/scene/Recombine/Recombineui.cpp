@@ -7,11 +7,11 @@ void Recomebineui::onLoadScene()
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("recombine/recombineui.plist");
 	TuiManager::getInstance()->parseScene(this, "panel_recombine", PATH_RECOMBINEUI);
 
-	CGridPageView *pGpvBag = (CGridPageView*)this->getControl(PANEL_RECOMBINE, GPV_BAG);
+	CGridPageView *pGpvBag = (CGridPageView*)this->getControlByTag( GPV_BAG);
 	pGpvBag->setDataSourceAdapter(this,ccw_datasource_adapter_selector(Recomebineui::adapt_gpv_bag));
 	pGpvBag->reloadData();
 
-	CButton *pBtnBack = (CButton*)this->getControl(PANEL_RECOMBINE, BTN_BACK);
+	CButton *pBtnBack = (CButton*)this->getControlByTag( BTN_BACK);
 	pBtnBack->setOnClickListener(this, ccw_click_selector(Recomebineui::event_btn_back));
 }
 
@@ -52,15 +52,3 @@ void Recomebineui::event_btn_back(Ref* pSender)
 /************************************************************************/
 //	GET/SET/IS
 /************************************************************************/
-
-Node * Recomebineui::getPanel(int tagPanel)
-{
-	Node *pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_RECOMBINE:
-		pPanel = this->getChildByTag(PANEL_RECOMBINE);
-		break;
-	}
-	return pPanel;
-}

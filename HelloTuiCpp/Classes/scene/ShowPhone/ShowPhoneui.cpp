@@ -9,7 +9,7 @@ void ShowPhoneui::onLoadScene()
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("showphone/showphoneui.plist");
 	TuiManager::getInstance()->parseScene(this, "panel_showphone", PATH_SHOWPHONE);
 
-	CircleMenu *menu = (CircleMenu*)this->getControl(PANEL_SHOWPHONE, CIRCLEMENU_SHOWPHONE);
+	CircleMenu *menu = (CircleMenu*)this->getControlByTag( CIRCLEMENU_SHOWPHONE);
 	menu->setOnClickListener(this, ccw_click_selector(ShowPhoneui::event_menu_phone));
 }
 
@@ -20,18 +20,6 @@ void ShowPhoneui::event_menu_phone(Ref* pSender)
 
 	CSceneManager::getInstance()->replaceScene(
 		CCSceneExTransitionFade::create(0.5f, LoadScene("Main::Mainui")));
-}
-
-Node * ShowPhoneui::getPanel(int tagPanel)
-{
-	Node *pPanel = nullptr;
-	switch (tagPanel)
-	{
-	case PANEL_SHOWPHONE:
-		pPanel = this->getChildByTag(PANEL_SHOWPHONE);
-		break;
-	}
-	return pPanel;
 }
 
 

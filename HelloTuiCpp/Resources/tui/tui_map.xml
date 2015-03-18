@@ -2,3 +2,24 @@
 	<control tag="1" type="panel" name="panel_map" x="400" y="240" width="800" height="480" rotation="0">
 		<control tag="2" type="mapView" num="160" column="20" cellWidth="40" cellHeight="40" x="0" y="0" width="800" height="480" rotation="0"></control>
 	</control>
+	<control tag="3" type="cell" name="cell_m_0" x="-19.65" y="20" width="40" height="40" rotation="0">
+		<control tag="4" type="image" image="map/img_m_0.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>
+	<control tag="5" type="cell" name="cell_m_1" x="20.3" y="20" width="40" height="40" rotation="0">
+		<control tag="6" type="image" image="map/img_m_1.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>
+	<control tag="7" type="cell" name="cell_m_2" x="60.3" y="20" width="40" height="40" rotation="0">
+		<control tag="8" type="image" image="map/img_m_2.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>
+	<control tag="9" type="cell" name="cell_m_3" x="100.3" y="20" width="40" height="40" rotation="0">
+		<control tag="10" type="image" image="map/img_m_3.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>
+	<control tag="11" type="cell" name="cell_m_4" x="140.3" y="20" width="40" height="40" rotation="0">
+		<control tag="12" type="image" image="map/img_m_4.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>
+	<control tag="13" type="cell" name="cell_m_5" x="-19.65" y="60" width="40" height="40" rotation="0">
+		<control tag="14" type="image" image="map/img_m_5.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>
+	<control tag="15" type="cell" name="cell_m_6" x="20.3" y="60" width="40" height="40" rotation="0">
+		<control tag="16" type="image" image="map/img_m_6.png" x="20" y="-20" width="40" height="40" scaleX="1" scaleY="1" flipX="0" flipY="0" rotation="0"></control>
+	</control>

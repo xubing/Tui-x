@@ -1112,15 +1112,21 @@ FlaToXML.prototype.convertCell = function(cell,tag ,frameName){
 /** 转换image */
 FlaToXML.prototype.convertImg = function( image , tag ,frameName){
 	var suffix = ".png";
-	if(image.parameters.suffix != null){
+	var flipX = false;
+	var flipY = false;
+	if(image.parameters && image.parameters.suffix != null){
 		suffix = image.parameters.suffix.value;
+	}
+	if(image.parameters && image.parameters.flipX != null){
+		filpX = image.parameters.flipX.value
+		flipY = image.parameters.flipY.value
 	}
 	
 	var xml_img = new UIImage();
 	xml_img.setAttribute( UIControlAttribute.kScaleX,formatNumber(image.scaleX));
 	xml_img.setAttribute( UIControlAttribute.kScaleY,formatNumber(image.scaleY));
-	xml_img.setAttribute( UIControlAttribute.kFlipX,formatBoolean(image.parameters.flipX.value));
-	xml_img.setAttribute( UIControlAttribute.kFlipY,formatBoolean(image.parameters.flipY.value));
+	xml_img.setAttribute( UIControlAttribute.kFlipX,formatBoolean(flipX));
+	xml_img.setAttribute( UIControlAttribute.kFlipY,formatBoolean(flipY));
 	xml_img.setAttribute( UIControlAttribute.kImage, image.libraryItem.name + suffix );
 	
 	this.fullNormalAttirbute( xml_img,this.th, image ,tag ,frameName);

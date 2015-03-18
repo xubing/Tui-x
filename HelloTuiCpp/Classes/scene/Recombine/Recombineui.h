@@ -10,7 +10,6 @@ public:
 
 	virtual void onLoadScene();
 
-	Node *getPanel(int tagPanel);
 protected:
 	Ref* adapt_gpv_bag(Ref* pConvertCell, unsigned int uIdx);
 

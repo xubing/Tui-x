@@ -104,7 +104,7 @@ public:
 	CEditBox *createEditBox(float tag, const char* placeHolder, const char* file, int inputMode, int inputFlag, float x, float y, float w, float h, float rotation, int isUseFrame);
 	CircleMenu *createCircleMenu(float tag, float x, float y, float w, float h, float rotation);
 	CTextRich *createTextRich(float tag, const char *text, int maxLen, float x, float y, float w, float h, float rotation, int isUseFrame);
-	
+	CMapView *createMapView(float tag, int column, int num, int cellWidth, int cellHeight, float x, float y, float w, float h, float rotation);
 protected:
 	/**
 	* @brief load xml file and cache
