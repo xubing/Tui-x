@@ -11,6 +11,8 @@ public:
 
 	void onLoadScene();
 protected:
+	Ref* event_adapt_map(Ref* pConvertCell, unsigned int uIdx);
+
 	CGrid *_grid;
 private:
 };
