@@ -1068,6 +1068,7 @@ FlaToXML.prototype.convertMC = function( mc ,tag ,frameName){
 		case "circlemenu":	control_xml = this.convertCirclemenu(mc,tag ,frameName);		break;
 		case "cell":		control_xml = this.convertCell(mc,tag ,frameName);				break;
 		case "expList":		control_xml = this.convertExpList(mc,tag ,frameName);			break;
+		case "map":			control_xml = this.convertMapView(mc,tag ,frameName);			break;
 	}
 	return control_xml;
 }
@@ -1420,7 +1421,7 @@ FlaToXML.prototype.convertMapView = function(mapView,tag,frameName){
 	xml_map.setAttribute(UIControlAttribute.kCellWidth,params.cellWidth.value);
 	xml_map.setAttribute(UIControlAttribute.kCellHeight,params.cellHeight.value);
 
-	this.fullNormalAttirbute(xml_map,this.th, gridView,tag ,frameName);
+	this.fullNormalAttirbute(xml_map,this.th, mapView,tag ,frameName);
 	return xml_map;
 }
 

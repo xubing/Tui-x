@@ -1,0 +1,4 @@
+
+	<control tag="1" type="panel" name="panel_map" x="400" y="240" width="800" height="480" rotation="0">
+		<control tag="2" type="mapView" num="160" column="20" cellWidth="40" cellHeight="40" x="0" y="0" width="800" height="480" rotation="0"></control>
+	</control>

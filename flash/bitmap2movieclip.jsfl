@@ -13,8 +13,11 @@ for (var i = 0; i < itemArr.length; i++) {
    lib.addItemToDocument({x:0,y:0});
    fl.getDocumentDOM().selectAll();
    //fl.getDocumentDOM().scaleSelection(0.5,0.5);
-   fl.getDocumentDOM().convertToSymbol("movie clip","img_"+expName,"bottom left") ; //将位图转化为mc元件
-	/*   
+   
+   fl.getDocumentDOM().convertToSymbol("movie clip","img_"+expName,"center") ; //将位图转化为mc元件
+   fl.getDocumentDOM().convertToSymbol("movie clip", "cell_"+expName, "bottom left");
+
+   /*   
    if (lib.getItemProperty('linkageImportForRS') == true) {
         lib.setItemProperty('linkageImportForRS', false);
    }
@@ -24,6 +27,8 @@ for (var i = 0; i < itemArr.length; i++) {
    lib.setItemProperty('linkageClassName', "img_"+expName);
    */
    lib.setItemProperty('scalingGrid',  false);//是否现实9公格参考线
-   fl.getDocumentDOM().selectAll(); //清空舞台
-   fl.getDocumentDOM().deleteSelection();
+   //fl.getDocumentDOM().selectAll(); //清空舞台
+   //fl.getDocumentDOM().deleteSelection();
+   
+   
 }
