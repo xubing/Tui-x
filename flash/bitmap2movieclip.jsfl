@@ -17,18 +17,18 @@ function createMapTiles(){
 	
 	var itemLen = itemArr.length
 	for (var i = 0; i < itemLen; i++) {
-
-		var itemIndex = doc.library.findItemIndex("cell_m_"+i);
+/*
+		var itemIndex = doc.library.findItemIndex("cell_m_"+i%4+"_"+i/4);
 		if (itemIndex != ""){
 			continue;
 		}
-
+*/
 	   var itemName = itemArr[i].name;
 
 	   var expName = itemName.split(".")[0]; //不带后缀名
 	   lib.selectItem(itemName); //选中位图
 	   lib.addItemToDocument({x:0,y:0});
-	   doc.selectAll();
+	   //doc.selectAll();
 	   //doc.scaleSelection(0.5,0.5);
 	   
 	   doc.convertToSymbol("movie clip","img_"+expName,"center") ; //将位图转化为mc元件
@@ -48,21 +48,19 @@ function createMapTiles(){
 }
 
 function placeMapTiles(){
-	
 	var doc = fl.getDocumentDOM()
-	var col = 5;
-	var row = 5;
+	var col = 4;
+	var row = 4;
 	var idx = 0
 
 	for(var i = 0; i < row; i++)
 	{
 		for(var j = 0; j < col; j++)
 		{
-			var itemIndex = doc.library.findItemIndex("cell_m_"+idx);
+			var itemIndex = doc.library.findItemIndex("cell_m_"+j+"_"+i);
 			if (itemIndex != ""){
 				var theItem = doc.library.items[itemIndex];
-				doc.addItem({x:j*40,y:i*40}, theItem);
-				idx++;
+				doc.addItem({x:j*256,y:i*256}, theItem);
 			}
 		}
 	}
@@ -70,7 +68,7 @@ function placeMapTiles(){
 
 //对片段地图命名
 function renameMapTiles(){
-
+	var doc = fl.getDocumentDOM()
 	var nlayer = doc.getTimeline().layerCount
 	var layers = doc.getTimeline().layers
 	for( var layer_index = nlayer-1; layer_index >= 0; --layer_index ){
@@ -97,9 +95,18 @@ function renameMapTiles(){
 }
 
 function main(){
-	createMapTiles()
-	placeMapTiles()
-	renameMapTiles()
+	var lib = fl.getDocumentDOM().library; //library 对象
+
+	lib.duplicateItem("img_tpl")
+	
+	
+	
+	
+	
+	
+	//createMapTiles()
+	//placeMapTiles()
+	//renameMapTiles()
 }
 
 main()

@@ -31,8 +31,8 @@ SOFTWARE.
 NS_CC_WIDGET_BEGIN
 
 using namespace std;
-class CMapView;
 class CMapViewCell;
+class CMapView;
 class CGrid;
 class CNode;
 typedef Vector<CNode*> VectNode ;
@@ -116,8 +116,8 @@ private:
 class CMapViewCell : public CGridViewCell
 {
 public:
-    CMapViewCell();
-	virtual ~CMapViewCell();
+	CMapViewCell(){};
+	virtual ~CMapViewCell(){};
 };
 
 

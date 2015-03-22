@@ -69,10 +69,10 @@ class NumericStepper;
 class MovieView;
 class CircleMenu;
 class CEditBox;
-class CMapView;
-class CMapViewCell;
 class CGrid;
 class CNode;
+class CMapViewCell;
+class CMapView;
 
 NS_CC_WIDGET_END
 
