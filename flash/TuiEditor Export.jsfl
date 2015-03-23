@@ -1118,7 +1118,7 @@ FlaToXML.prototype.convertImg = function( image , tag ,frameName){
 		suffix = image.parameters.suffix.value;
 	}
 	if(image.parameters && image.parameters.flipX != null){
-		filpX = image.parameters.flipX.value
+		flipX = image.parameters.flipX.value
 		flipY = image.parameters.flipY.value
 	}
 	

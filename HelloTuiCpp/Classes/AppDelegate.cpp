@@ -41,8 +41,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//regist scene
 	ResoureMgr::getInstance()->registScene();
     // run
-	CSceneManager::getInstance()->runWithScene(LoadScene("Welcome::Welcomeui"));
-//	CSceneManager::getInstance()->runWithScene(LoadScene("Mapui"));
+	//CSceneManager::getInstance()->runWithScene(LoadScene("Welcome::Welcomeui"));
+	CSceneManager::getInstance()->runWithScene(LoadScene("Mapui"));
     return true;
 }
 

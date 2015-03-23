@@ -281,7 +281,7 @@ VectNode AStar::getVisited()
 //////////////////////////////////////////////////////////////////////////
 CMapView::CMapView()
 {
-
+	this->setBounceable(false);
 }
 
 CMapView* CMapView::create(const Size& tViewSize)

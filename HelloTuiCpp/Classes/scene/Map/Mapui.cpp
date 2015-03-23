@@ -39,14 +39,13 @@ Ref* Mapui::event_adapt_map(Ref* pConvertCell, unsigned int uIdx)
 	{
 		pCell = new CMapViewCell();
 		pCell->autorelease();
-
 		char buf[128];
-		sprintf(buf,"cell_grid%d",uIdx);
+		sprintf(buf,"cell_m_%d",uIdx);
 		TuiManager::getInstance()->parseCell(pCell, buf, PATH_MAP);
-
 	}else{
 
 	}
+	
 	return pCell;
 }
 
