@@ -39,11 +39,20 @@ Ref* Mapui::event_adapt_map(Ref* pConvertCell, unsigned int uIdx)
 	{
 		pCell = new CMapViewCell();
 		pCell->autorelease();
+
 		char buf[128];
 		sprintf(buf,"cell_m_%d",uIdx);
+		pCell->setTag(uIdx);
 		TuiManager::getInstance()->parseCell(pCell, buf, PATH_MAP);
 	}else{
-
+		int tag = pCell->getTag();
+		if(tag != uIdx ){
+			pCell->removeAllChildren();
+			char buf[128];
+			sprintf(buf,"cell_m_%d",uIdx);
+			pCell->setTag(uIdx);
+			TuiManager::getInstance()->parseCell(pCell, buf, PATH_MAP);
+		}
 	}
 	
 	return pCell;
